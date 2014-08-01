@@ -1,0 +1,13 @@
+[user]
+    name = mookle
+    email = <EMAIL>
+[core]
+    editor = vim
+[color]
+    status = auto
+    ui = true
+[color "status"]
+    added = green
+    changed = blue
+    untracked = normal
+    deleted = red
