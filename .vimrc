@@ -63,6 +63,7 @@ let g:xptemplate_key = '<Tab>'
 let g:xptemplate_vars = '$author=<AUTHOR>'
 
 " Syntastic
+let g:syntastic_scala_checkers = []
 let g:syntastic_enable_balloons = 0
 let g:syntastic_auto_loc_list = 0
 let g:syntastic_auto_jump = 1
