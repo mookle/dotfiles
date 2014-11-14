@@ -45,7 +45,10 @@ autocmd ColorScheme * match ExtraWhitespace /\s\+$/
 " ========== Plugins ===========
 
 " CtrlP
-set wildignore+=*/tmp/*,*/.git/*,*/cache/*,*/logs/*,*.so,*.swp,*.zip " excluded paths
+let g:ctrlp_custom_ignore = { " a more managable alternative to set wildignore+=
+    \ 'dir': '\v[\/](\.git|cache|log|vendor|report|target)$',
+    \ 'file': '\v\.(so|swp|zip)',
+    \ }
 let g:ctrlp_working_path_mode = 'a'   " use the current working directory as root, provided it isn't a descendant of CtrlP's directory
 "let g:ctrlp_cmd='CtrlPMRUFiles'       " start CtrlP in MRU mode
 let g:ctrlp_clear_cache_on_exit=0     " maintain cache between vim sessions
