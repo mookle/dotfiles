@@ -74,44 +74,45 @@ let g:syntastic_auto_jump = 1
 " ========== Vundle ==========
 
 filetype off " required
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
 
 " Vundle itself
-Bundle 'gmarik/vundle'
+Plugin 'gmarik/vundle'
 
 " Restores Focus(Lost|Gained) when using iTerm
-Bundle 'sjl/vitality.vim'
+Plugin 'sjl/vitality.vim'
 
 " CtrlP (fuzzy file-finder)
-Bundle 'kien/ctrlp.vim'
+Plugin 'kien/ctrlp.vim'
 
 " Display git diff notation in the gutter
-Bundle 'airblade/vim-gitgutter'
+Plugin 'airblade/vim-gitgutter'
 
 " File renaming (saveas and delete old)
-Bundle 'vim-scripts/Rename'
+Plugin 'vim-scripts/Rename'
 
 " Template snippets
-Bundle 'drmingdrmer/xptemplate'
+Plugin 'drmingdrmer/xptemplate'
 
-Bundle 'vim-scripts/SyntaxAttr.vim'
+Plugin 'vim-scripts/SyntaxAttr.vim'
 " Syntax error checking
-Bundle 'scrooloose/syntastic'
+Plugin 'scrooloose/syntastic'
 
 " Syntax highlighting
-Bundle 'derekwyatt/vim-scala'
-Bundle 'estin/htmljinja'
-Bundle 'plasticboy/vim-markdown'
-Bundle 'StanAngeloff/php.vim'
-Bundle 'leshill/vim-json'
+Plugin 'derekwyatt/vim-scala'
+Plugin 'estin/htmljinja'
+Plugin 'plasticboy/vim-markdown'
+Plugin 'StanAngeloff/php.vim'
+Plugin 'leshill/vim-json'
 
 " Colorschemes
-Bundle 'vim-scripts/devbox-dark-256'
-Bundle 'mookle/autobot.vim'
-Bundle 'mookle/decepticon.vim'
-Bundle 'vim-scripts/256-jungle'
+Plugin 'vim-scripts/devbox-dark-256'
+Plugin 'mookle/autobot.vim'
+Plugin 'mookle/decepticon.vim'
+Plugin 'vim-scripts/256-jungle'
 
+call vundle#end()
 filetype plugin indent on " re-enable now that Vundle is done
 
 " Set default colourscheme
