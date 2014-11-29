@@ -37,6 +37,8 @@ class `name^
 XPT public " public method
 /**
  * `description^
+ *
+ * `docblock^
  */
 public function `name^(`params^)
 {
@@ -46,6 +48,8 @@ public function `name^(`params^)
 XPT protected " protected method
 /**
  * `description^
+ *
+ * `docblock^
  */
 protected function `name^(`params^)
 {
@@ -55,6 +59,8 @@ protected function `name^(`params^)
 XPT private " private method
 /**
  * `description^
+ *
+ * `docblock^
  */
 private function `name^(`params^)
 {
