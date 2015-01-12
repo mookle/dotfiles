@@ -23,8 +23,8 @@ set number    	  " enable line numbers
 set cursorline    " highlight the current line
 set ruler         " display the cursor position in STATUS bar
 set showcmd       " show partial commands in the STATUS bar
-set textwidth=120 " max horizontal characters
-set nowrap        " don't wrap text
+set textwidth=0   " don't wrap
+set wrapmargin=0  " don't wrap
 set scrolloff=12  " number of lines to display either side of the current
 
 " Indentation
