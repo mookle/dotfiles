@@ -19,6 +19,7 @@ echo -e $br
 
 rsync --exclude ".git/" --exclude "README.md" --exclude "install.sh" \
       --exclude ".DS_Store" -av --no-perms . ~
+rsync -av ./sbtopts /usr/local/etc/sbtopts
 
 echo -e $br
 
