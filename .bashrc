@@ -6,6 +6,7 @@ export EDITOR="vim"
 
 # Handy alias definitions
 alias ll="ls -lah"
+alias tmkill="tmux kill-session"
 
 # Android SDK
 export ANDROID_HOME=$HOME/.android/sdk
