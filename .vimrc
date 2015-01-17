@@ -39,7 +39,6 @@ syntax on " enable syntax highlighting
 " Syntax highlighting for Twig
 autocmd BufRead,BufNewFile *.twig set filetype=htmljinja
 " Highlight trailing whitespace
-"autocmd ColorScheme * hi ExtraWhitespace ctermbg=white
 autocmd ColorScheme * match ExtraWhitespace /\s\+$/
 
 " ========== Plugins ===========
@@ -49,11 +48,11 @@ let g:ctrlp_custom_ignore = {
     \ 'dir':  '\v[\/](\.git|tmp|cache|log|vendor|target|report)$',
     \ 'file': '\v\.(so|swp|zip|log)$'
     \ }
-let g:ctrlp_working_path_mode = 'a'   " use the current working directory as root, provided it isn't a descendant of CtrlP's directory
-"let g:ctrlp_cmd='CtrlPMRUFiles'       " start CtrlP in MRU mode
-let g:ctrlp_clear_cache_on_exit=0     " maintain cache between vim sessions
-let g:ctrlp_open_multiple_files = 'i' " open mulitple files as hidden buffers
+let g:ctrlp_working_path_mode = 'a'   " use the directory of the current file
+let g:ctrlp_clear_cache_on_exit= 1     " maintain cache between vim sessions
+let g:ctrlp_open_multiple_files = 'i' " open multiple files as hidden buffers
 let g:ctrlp_mruf_max = 15             " limit the number of recently-used files CtrlP should remember
+let g:ctrlp_user_command = ['.git/', 'cd %s && git ls-files --exclude-standard -co'] " faster indexing
 
 " Vim Markdown
 let g:vim_markdown_folding_disabled=1 " disable folding
@@ -71,14 +70,20 @@ let g:syntastic_enable_balloons = 0
 let g:syntastic_auto_loc_list = 0
 let g:syntastic_auto_jump = 1
 
+" Airline
+let g:airline_theme='powerlineish'
+set laststatus=2 " always visible
+set timeoutlen=50 " reduce lag when leaving insert mode
+
 " ========== Vundle ==========
 
+set nocompatible " required
 filetype off " required
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
 " Vundle itself
-Plugin 'gmarik/vundle'
+Plugin 'gmarik/Vundle.vim' " required
 
 " Restores Focus(Lost|Gained) when using iTerm
 Plugin 'sjl/vitality.vim'
@@ -89,13 +94,21 @@ Plugin 'kien/ctrlp.vim'
 " Display git diff notation in the gutter
 Plugin 'airblade/vim-gitgutter'
 
+" Full-on git integration
+Plugin 'tpope/vim-fugitive'
+
 " File renaming (saveas and delete old)
 Plugin 'vim-scripts/Rename'
 
 " Template snippets
 Plugin 'drmingdrmer/xptemplate'
 
+" Better status line
+Plugin 'bling/vim-airline'
+
+" Display the highlighting syntax of the character under the cursor
 Plugin 'vim-scripts/SyntaxAttr.vim'
+
 " Syntax error checking
 Plugin 'scrooloose/syntastic'
 
