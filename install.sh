@@ -17,6 +17,17 @@ done
 
 echo -e $br
 
+echo "Attempting to install bash completion script"
+
+if type "brew" > /dev/null 2>&1; then
+    echo "Success!"
+    brew install bash-completion
+else
+    echo "Unsucessful: brew not installed"
+fi
+
+echo -e $br
+
 rsync --exclude ".git/" --exclude "README.md" --exclude "install.sh" \
       --exclude ".DS_Store" -av --no-perms . ~
 rsync -av ./sbtopts /usr/local/etc/sbtopts
