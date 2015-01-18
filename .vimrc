@@ -38,8 +38,6 @@ set softtabstop=4 " number of columns a tab uses
 syntax on " enable syntax highlighting
 " Syntax highlighting for Twig
 autocmd BufRead,BufNewFile *.twig set filetype=htmljinja
-" Highlight trailing whitespace
-autocmd ColorScheme * match ExtraWhitespace /\s\+$/
 
 " ========== Plugins ===========
 
@@ -84,49 +82,38 @@ call vundle#begin()
 
 " Vundle itself
 Plugin 'gmarik/Vundle.vim' " required
-
 " Restores Focus(Lost|Gained) when using iTerm
 Plugin 'sjl/vitality.vim'
-
 " CtrlP (fuzzy file-finder)
 Plugin 'kien/ctrlp.vim'
-
 " Display git diff notation in the gutter
 Plugin 'airblade/vim-gitgutter'
-
 " Full-on git integration
 Plugin 'tpope/vim-fugitive'
-
 " File renaming (saveas and delete old)
 Plugin 'vim-scripts/Rename'
-
 " Template snippets
 Plugin 'drmingdrmer/xptemplate'
-
 " Better status line
 Plugin 'bling/vim-airline'
-
 " Display the highlighting syntax of the character under the cursor
 Plugin 'vim-scripts/SyntaxAttr.vim'
-
 " Syntax error checking
 Plugin 'scrooloose/syntastic'
-
 " Syntax highlighting
 Plugin 'derekwyatt/vim-scala'
 Plugin 'estin/htmljinja'
 Plugin 'plasticboy/vim-markdown'
 Plugin 'StanAngeloff/php.vim'
 Plugin 'leshill/vim-json'
-
 " Colorschemes
 Plugin 'vim-scripts/devbox-dark-256'
 Plugin 'mookle/autobot.vim'
 Plugin 'mookle/decepticon.vim'
-Plugin 'vim-scripts/256-jungle'
+Plugin 'morhetz/gruvbox'
 
 call vundle#end()
 filetype plugin indent on " re-enable now that Vundle is done
 
 " Set default colourscheme
-colorscheme autobot
+colorscheme gruvbox
