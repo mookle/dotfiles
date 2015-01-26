@@ -47,5 +47,6 @@
 #
 #-java-home <path>
 
--J-Xmx4G
+-J-Xmx2048M
+-J-Xss1M
 -J-XX:+CMSClassUnloadingEnabled
