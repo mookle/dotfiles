@@ -94,6 +94,8 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'vim-scripts/Rename'
 " Template snippets
 Plugin 'drmingdrmer/xptemplate'
+" Multiline editing
+Plugin 'terryma/vim-multiple-cursors'
 " Better status line
 Plugin 'bling/vim-airline'
 " Display the highlighting syntax of the character under the cursor
