@@ -100,6 +100,10 @@ Plugin 'terryma/vim-multiple-cursors'
 Plugin 'bling/vim-airline'
 " Display the highlighting syntax of the character under the cursor
 Plugin 'vim-scripts/SyntaxAttr.vim'
+" Clojure syntax highlighting, indentation, etc
+Plugin 'guns/vim-clojure-static'
+" Clojure REPL support
+Plugin 'tpope/vim-fireplace'
 " Syntax error checking
 Plugin 'scrooloose/syntastic'
 " Syntax highlighting
@@ -118,4 +122,4 @@ call vundle#end()
 filetype plugin indent on " re-enable now that Vundle is done
 
 " Set default colourscheme
-colorscheme gruvbox
+colorscheme autobot
