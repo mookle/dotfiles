@@ -100,18 +100,18 @@ Plugin 'terryma/vim-multiple-cursors'
 Plugin 'bling/vim-airline'
 " Display the highlighting syntax of the character under the cursor
 Plugin 'vim-scripts/SyntaxAttr.vim'
-" Clojure syntax highlighting, indentation, etc
-Plugin 'guns/vim-clojure-static'
 " Clojure REPL support
 Plugin 'tpope/vim-fireplace'
 " Syntax error checking
 Plugin 'scrooloose/syntastic'
 " Syntax highlighting
-Plugin 'derekwyatt/vim-scala'
 Plugin 'estin/htmljinja'
 Plugin 'plasticboy/vim-markdown'
-Plugin 'StanAngeloff/php.vim'
 Plugin 'leshill/vim-json'
+Plugin 'StanAngeloff/php.vim'
+Plugin 'derekwyatt/vim-scala'
+Plugin 'guns/vim-clojure-static'
+Plugin 'rust-lang/rust.vim'
 " Colorschemes
 Plugin 'vim-scripts/devbox-dark-256'
 Plugin 'mookle/autobot.vim'
