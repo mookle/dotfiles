@@ -26,6 +26,7 @@ set showcmd      " show partial commands in the STATUS bar
 set textwidth=0  " don't wrap
 set wrapmargin=0 " don't wrap
 set scrolloff=12 " number of lines to display either side of the current
+set backspace=indent,eol,start " fix backspace
 
 " Indentation
 filetype plugin indent on
