@@ -13,19 +13,19 @@ set splitbelow " open horizontal splits below the current file
 set splitright " open vertical splits to the right of the current file
 
 " Searching
-"set hlsearch   " highlight search terms
+"set hlsearch  " highlight search terms
 set incsearch  " show search matches as they are typed
 set ignorecase " ignore case when searching
 set smartcase  " make searches case-sensitive when uppercase is used
 
 " Editing
-set number    	  " enable line numbers
-set cursorline    " highlight the current line
-set ruler         " display the cursor position in STATUS bar
-set showcmd       " show partial commands in the STATUS bar
-set textwidth=0   " don't wrap
-set wrapmargin=0  " don't wrap
-set scrolloff=12  " number of lines to display either side of the current
+set number       " enable line numbers
+set cursorline   " highlight the current line
+set ruler        " display the cursor position in STATUS bar
+set showcmd      " show partial commands in the STATUS bar
+set textwidth=0  " don't wrap
+set wrapmargin=0 " don't wrap
+set scrolloff=12 " number of lines to display either side of the current
 
 " Indentation
 filetype plugin indent on
@@ -70,11 +70,13 @@ let g:syntastic_auto_jump = 1
 
 " Airline
 let g:airline_theme='powerlineish'
+let g:airline_section_c = '%F' " display full filepath
 set laststatus=2 " always visible
 set timeoutlen=50 " reduce lag when leaving insert mode
 
 " ========== Vundle ==========
 
+" Vundle init
 set nocompatible " required
 filetype off " required
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -82,14 +84,12 @@ call vundle#begin()
 
 " Vundle itself
 Plugin 'gmarik/Vundle.vim' " required
-" Restores Focus(Lost|Gained) when using iTerm
+" Restores Focus(Lost|Gained) when using iTerm & tmux
 Plugin 'sjl/vitality.vim'
 " CtrlP (fuzzy file-finder)
 Plugin 'kien/ctrlp.vim'
 " Display git diff notation in the gutter
 Plugin 'airblade/vim-gitgutter'
-" Full-on git integration
-Plugin 'tpope/vim-fugitive'
 " File renaming (saveas and delete old)
 Plugin 'vim-scripts/Rename'
 " Template snippets
@@ -98,26 +98,25 @@ Plugin 'drmingdrmer/xptemplate'
 Plugin 'terryma/vim-multiple-cursors'
 " Better status line
 Plugin 'bling/vim-airline'
-" Display the highlighting syntax of the character under the cursor
-Plugin 'vim-scripts/SyntaxAttr.vim'
-" Clojure REPL support
-Plugin 'tpope/vim-fireplace'
-" Syntax error checking
+" Syntax checking
 Plugin 'scrooloose/syntastic'
 " Syntax highlighting
 Plugin 'estin/htmljinja'
+Plugin 'godlygeek/tabular' " required by plasticboy/vim-markdown
 Plugin 'plasticboy/vim-markdown'
 Plugin 'leshill/vim-json'
 Plugin 'StanAngeloff/php.vim'
 Plugin 'derekwyatt/vim-scala'
-Plugin 'guns/vim-clojure-static'
 Plugin 'rust-lang/rust.vim'
+" Clojure integration
+Plugin 'guns/vim-clojure-static'
+Plugin 'tpope/vim-fireplace'
 " Colorschemes
 Plugin 'vim-scripts/devbox-dark-256'
 Plugin 'mookle/autobot.vim'
 Plugin 'mookle/decepticon.vim'
-Plugin 'morhetz/gruvbox'
 
+" Vundle clean-up
 call vundle#end()
 filetype plugin indent on " re-enable now that Vundle is done
 
