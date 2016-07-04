@@ -70,6 +70,9 @@ let g:airline_section_c = '%F' " display full filepath
 set laststatus=2 " always visible
 set timeoutlen=50 " reduce lag when leaving insert mode
 
+" Clojure Static
+let g:clojure_align_multiline_strings = 1
+
 " ========== Vundle ==========
 
 " Vundle init
@@ -106,6 +109,9 @@ Plugin 'rust-lang/rust.vim'
 " Clojure integration
 Plugin 'guns/vim-clojure-static'
 Plugin 'tpope/vim-fireplace'
+Plugin 'venantius/vim-cljfmt'
+Plugin 'vim-scripts/paredit.vim'
+Plugin 'tpope/vim-surround'
 " Colorschemes
 Plugin 'vim-scripts/devbox-dark-256'
 Plugin 'mookle/autobot.vim'
