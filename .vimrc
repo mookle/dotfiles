@@ -91,7 +91,8 @@ Plugin 'vim-scripts/Rename'
 " Multiline editing
 Plugin 'terryma/vim-multiple-cursors'
 " Better status line
-Plugin 'bling/vim-airline'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
 " Syntax checking
 Plugin 'scrooloose/syntastic'
 " Syntax highlighting
