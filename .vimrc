@@ -69,7 +69,7 @@ let g:syntastic_auto_jump = 1
 let g:airline_theme='powerlineish'
 let g:airline_section_c = '%F' " display full filepath
 set laststatus=2 " always visible
-set timeoutlen=50 " reduce lag when leaving insert mode
+set ttimeoutlen=10 " reduce lag when leaving insert mode
 
 " Clojure Static
 let g:clojure_align_multiline_strings = 1
@@ -111,8 +111,8 @@ Plugin 'rust-lang/rust.vim'
 Plugin 'guns/vim-clojure-static'
 Plugin 'tpope/vim-fireplace'
 Plugin 'venantius/vim-cljfmt'
-Plugin 'vim-scripts/paredit.vim'
-Plugin 'tpope/vim-surround'
+Plugin 'guns/vim-sexp'
+Plugin 'tpope/vim-sexp-mappings-for-regular-people'
 " Colorschemes
 Plugin 'vim-scripts/devbox-dark-256'
 Plugin 'mookle/autobot.vim'
