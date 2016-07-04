@@ -58,10 +58,6 @@ let g:vim_markdown_folding_disabled=1 " disable folding
 " PHP syntax
 let g:php_ignore_phpdoc=1
 
-" XPTemplate
-let g:xptemplate_key = '<Tab>'
-let g:xptemplate_vars = '$author=<AUTHOR>'
-
 " Syntastic
 let g:syntastic_scala_checkers = []
 let g:syntastic_enable_balloons = 0
@@ -92,8 +88,6 @@ Plugin 'kien/ctrlp.vim'
 Plugin 'airblade/vim-gitgutter'
 " File renaming (saveas and delete old)
 Plugin 'vim-scripts/Rename'
-" Template snippets
-Plugin 'drmingdrmer/xptemplate'
 " Multiline editing
 Plugin 'terryma/vim-multiple-cursors'
 " Better status line

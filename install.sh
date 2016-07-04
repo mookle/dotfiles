@@ -36,7 +36,5 @@ echo -e $br
 
 read -p ".gitconfig needs to set user.email: " email
 sed -i .bk s/\<EMAIL\>/"$email"/g ~/.gitconfig; rm ~/.gitconfig.bk
-read -p ".vimrc needs a name for the phpDoc @author tag: " name
-sed -i .bk s/\<AUTHOR\>/"$name"/g ~/.vimrc; rm ~/.vimrc.bk
 
 echo -e "\nAll done!\n"
