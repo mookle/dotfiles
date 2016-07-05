@@ -50,13 +50,9 @@ rsync --exclude '.git/' \
       --exclude 'README.md' \
       --exclude 'install.sh' \
       --exclude '.DS_Store' \
-      --exclude 'sbtopts' \
       --exclude '.bashrc' \
       --exclude '.bash_profile' \
       -aq --no-perms . ~
-
-# Copy any stragglers that don't live in ~
-rsync -aq ./sbtopts /usr/local/etc/sbtopts
 
 # OS-specific bash configuration
 case `os` in
