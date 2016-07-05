@@ -1,68 +1,35 @@
 #!/bin/bash
 
-# Useful when things go a bit wrong...
-ABORT () {
-    echo "Aborting: $1\n"
-    exit;
+readonly DESTINATION=${HOME}
+readonly EXCLUDE_FILE=.rsync_exclude
+
+prompt() {
+    read -n1 -p "WARNING! This will overwrite existing files in $DESTINATION. Continue? [y/N]: "
+    echo $REPLY
 }
 
-# Figure out which OS the script is running in
-os () {
-    case $(uname) in
-        Linux*) echo 'lnx';;
-        Darwin*) echo 'osx';;
-        *) ABORT 'Unsupported operating system'
-           exit;;
-    esac
+install() {
+    rsync --exclude-from "$EXCLUDE_FILE" --exclude "$EXCLUDE_FILE" -av --no-perms . "$DESTINATION"
 }
 
-# OS-safe sed
-sedi () {
+bash() {
     case `os` in
-        lnx*) sedi='-i';;
-        osx*) sedi=('-i' '');;
+        lnx*) cat ./.bashrc >> $DESTINATION/.bashrc;; # @todo Make this idempotent
+        osx*) cp ./.bash{rc,_profile} $DESTINATION;;
     esac
-
-    LC_ALL=C sed "${sedi[@]}" "$@"
 }
 
-# Check any OS-specific preconditions
-if [ `os` == "osx" ]; then
-    if ! type "brew" > /dev/null 2>&1; then
-        ABORT 'Homebrew not installed'
-    fi
+replace_tokens() {
+    -read -p ".gitconfig wants to set user.email: " email
+    sed -i.bak s/\<EMAIL\>/"$email"/g $DESTINATION/.gitconfig
+    rm $DESTINATION/.gitconfig.bak
+}
+
+# ===========================
+
+if [[ $(prompt) =~ [Yy] ]]; then
+    install && bash && replace_tokens
+    echo -e "\nAll done!\n"
+else
+    echo -e "\nAborting...\n"
 fi
-
-# Safety first...
-echo 'WARNING! This script will overwrite existing configuration files'
-while true; do
-    read -p 'Do you wish to continue? [Y/n]: ' yn
-    case ${yn:-Y} in
-        [yYes]* ) break;;
-        [nNo]* ) exit;;
-        * ) echo 'Please answer y(es) or n(o)';;
-    esac
-done
-
-# Copy config files across to ~
-echo -e 'Copying configuration files'
-rsync --exclude '.git/' \
-      --exclude 'README.md' \
-      --exclude 'install.sh' \
-      --exclude '.DS_Store' \
-      --exclude '.bashrc' \
-      --exclude '.bash_profile' \
-      -aq --no-perms . ~
-
-# OS-specific bash configuration
-case `os` in
-    lnx*) cat ./.bashrc >> ~/.bashrc;; # @todo Make this idempotent
-    osx*) brew install bash-completion &&
-          cp ./.bash{rc,_profile} ~;;
-esac
-
-# Setup git user.email
-read -p ".gitconfig wants to set user.email: " email
-sedi s/\<EMAIL\>/"$email"/g ~/.gitconfig
-
-echo -e "\nAll done!\n"

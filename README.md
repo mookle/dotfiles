@@ -1,30 +1,17 @@
 # Dotfiles
 
-My day-to-day config files for various geeky escapades, nothing particularly special.
+Config files for various development tools.
 
-## Installation
-There is a handy little install script which `rsync`s the files to `~/`, then uses `sed` to replace several tokenised parameters. Simply run:
+## Usage
 
     $ ./install.sh
 
+This script `rsync`s the dotfiles into the current user's `$(HOME)` directory, then uses `read` and `sed` to replace certain tokenised parameters.
 
+## Token replacement
 
-### Parameters
+`install.sh` will prompt the user for any token replacement values that may be required. Currently, the following values are requested:
 
-The installation script will prompt for replacement token values referenced in the following files:
-#### .gitconfig
-
+    // ~/.gitconfig
     [user]
       email = <EMAIL>
-
-#### .vimrc
-
-ViM's XPTemplate plugin uses templates that contain the phpDocumentor `@author` tag.
-
-    let g:xptemplate_vars = '$author=<AUTHOR>'
-
-
-
-## Credits
-
-The idea for this repo has been shamelessly ripped from [adlawson/dotfiles](https://github.com/adlawson/dotfiles)
