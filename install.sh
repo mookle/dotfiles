@@ -12,13 +12,6 @@ install() {
     rsync --exclude-from "$EXCLUDE_FILE" --exclude "$EXCLUDE_FILE" -av --no-perms . "$DESTINATION"
 }
 
-bash() {
-    case `os` in
-        lnx*) cat ./.bashrc >> $DESTINATION/.bashrc;; # @todo Make this idempotent
-        osx*) cp ./.bash{rc,_profile} $DESTINATION;;
-    esac
-}
-
 replace_tokens() {
     -read -p ".gitconfig wants to set user.email: " email
     sed -i.bak s/\<EMAIL\>/"$email"/g $DESTINATION/.gitconfig
@@ -28,7 +21,7 @@ replace_tokens() {
 # ===========================
 
 if [[ $(prompt) =~ [Yy] ]]; then
-    install && bash && replace_tokens
+    install && replace_tokens
     echo -e "\nAll done!\n"
 else
     echo -e "\nAborting...\n"

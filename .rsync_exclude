@@ -1,6 +1,4 @@
 .git/
 .gitignore
-README.md
 install.sh
-.bashrc
-.bash_profile
+README.md
