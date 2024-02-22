@@ -1,17 +1,32 @@
-# Dotfiles
+# ~/
 
-Config files for various development tools.
+Configuration files for my local development setup.
+
+
+## Installation
+
+```bash
+git clone --bare git@github.com:mookle/dotfiles.git $HOME/.git
+```
+
+Cloning to `.git` allows Neovim to discover the root of the working tree, which is helpful for operations like fuzzy file-finding. For the same reason, irrelevant paths are ignored via `.gitignore`, rather than using `git status --untracked-files=no` on the command line.
+
 
 ## Usage
 
-    $ ./install.sh
+```bash
+dot <command> 
+```
 
-This script `rsync`s the dotfiles into the current user's `$(HOME)` directory, then uses `read` and `sed` to replace certain tokenised parameters.
+An alias for `git --work-tree=$HOME <command>`; needed when working with a bare repository.
 
-## Token replacement
 
-`install.sh` will prompt the user for any token replacement values that may be required. Currently, the following values are requested:
+## Placeholder Tokens
 
-    // ~/.gitconfig
-    [user]
-      email = <EMAIL>
+Some files contain placeholder tokens in lieu of sensitive data. Once the placeholders have been updated, accidental commits can be avoided by telling git to skip the file in question. E.g:
+
+```bash
+dot update-index --skip-worktree .gitconfig
+```
+
+Note that `update-index` is a local operation, so each clone will need to repeat it. If needed (e.g. when switching between branches) the update can be reversed with `--no-skip-worktree`.

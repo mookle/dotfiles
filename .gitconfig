@@ -1,13 +1,28 @@
-[user]
-    name = mookle
-    email = <EMAIL>
+[alias]
+    prune = fetch --prune
 [core]
-    editor = vim
+    editor = nvim
+    fileMode = false
 [color]
-    status = auto
-    ui = true
+    ui = auto
 [color "status"]
     added = green
-    changed = blue
+    changed = yellow
     untracked = normal
     deleted = red
+[init]
+    defaultBranch = main
+[github]
+    user = {{ git_user }}
+[merge]
+    ff = only
+[pull]
+    rebase = false
+[push]
+    followTags = true
+    autoSetupRemote = true
+[status]
+    statusUntrackedFiles = all
+[user]
+    name = {{ git_user }}
+    email = {{ git_email }}
