@@ -1,0 +1,47 @@
+# Keep the working tree clean of irrelevant files. In an attempt to ensure
+# future config isn't mistakenly ignored, most patterns should make broad
+# inclusions and narrow exclusions. E.g. do this:
+#
+# !/.config/foo
+# /.config/foo/private_file
+#
+# instead of this:
+#
+# !/.config/foo
+# /.config/foo/*
+# !/.config/foo/public_file
+
+/*
+
+!/.config
+/.config/*
+
+!/.config/fish
+/.config/fish/completions
+/.config/fish/fish_variables
+/.config/fish/functions
+
+!/.config/nvim
+/.config/nvim/lazy-lock.json
+
+!/.config/tmux
+/.config/tmux/plugins
+
+!/.config/appimagelauncher.cfg
+
+!/.lein
+
+!/.ssh
+/.ssh/*
+!/.ssh/config
+
+!.ghci
+# Future revisions of .gitconfig are ignored in an effort to prevent
+# accidentally committing sensitive data. To stop ignoring it run:
+#
+# git update-index --no-skip-worktree .gitconfig
+#
+# Note that `(--|no-)skip-worktree` is a local change. Take care when switching
+# branches and working with fresh clones
+!.gitconfig
+!.gitignore
