@@ -35,6 +35,8 @@
 /.ssh/*
 !/.ssh/config
 
+!/.tmuxinator
+
 !.ghci
 # Future revisions of .gitconfig are ignored in an effort to prevent
 # accidentally committing sensitive data. To stop ignoring it run:
@@ -45,3 +47,4 @@
 # branches and working with fresh clones
 !.gitconfig
 !.gitignore
+
