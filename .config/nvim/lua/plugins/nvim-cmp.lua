@@ -3,9 +3,11 @@ return {
     "hrsh7th/nvim-cmp",
     event = "InsertEnter",
     dependencies = {
-        "hrsh7th/cmp-nvim-lsp",
-        "hrsh7th/cmp-path",
         "hrsh7th/cmp-buffer",
+        "hrsh7th/cmp-nvim-lsp",
+        "hrsh7th/cmp-nvim-lsp-signature-help",
+        "hrsh7th/cmp-path",
+        "dcampos/nvim-snippy",
         "dcampos/cmp-snippy",
     },
     opts = function()
@@ -19,16 +21,13 @@ return {
                 end,
             },
             mapping = {
-                ["<C-p>"] = cmp.mapping.select_prev_item(),
-                ["<C-n>"] = cmp.mapping.select_next_item(),
-                -- Add tab support
-                ["<S-Tab>"] = cmp.mapping.select_prev_item(),
-                ["<Tab>"] = cmp.mapping.select_next_item(),
-                ["<C-d>"] = cmp.mapping.scroll_docs(-4),
-                ["<C-f>"] = cmp.mapping.scroll_docs(4),
-                ["<C-Space>"] = cmp.mapping.complete(),
-                ["<C-e>"] = cmp.mapping.close(),
-                ["<CR>"] = cmp.mapping.confirm({
+                ["<S-tab>"] = cmp.mapping.select_prev_item(),
+                ["<up>"] = cmp.mapping.select_prev_item(),
+                ["<tab>"] = cmp.mapping.select_next_item(),
+                ["<down>"] = cmp.mapping.select_next_item(),
+                ["<S-up>"] = cmp.mapping.scroll_docs(-1),
+                ["<S-down>"] = cmp.mapping.scroll_docs(1),
+                ["<cr>"] = cmp.mapping.confirm({
                     behavior = cmp.ConfirmBehavior.Insert,
                     select = false,
                 }),
@@ -37,14 +36,12 @@ return {
                 completion = cmp.config.window.bordered({ winhighlight = whl }),
                 documentation = cmp.config.window.bordered({ winhighlight = whl }),
             },
-            sources = {
+            sources = cmp.config.sources({
                 { name = "nvim_lsp" },
-                { name = "path" },
                 { name = "buffer" },
                 { name = "snippy" },
-                { name = "elixir" },
-                { name = "rust" },
-            },
+                { name = "path" },
+            }),
         }
     end,
     config = function(args)
