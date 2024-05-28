@@ -12,10 +12,13 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("options")
-require("lazy").setup("plugins")
+require("lazy").setup({
+    {import = "plugins"},
+    {import = "colorscheme"},
+})
 
 vim.o.background = "dark"
-vim.cmd("colorscheme nordic")
+vim.cmd("colorscheme forestbones")
 
 --vim.cmd.cabbr({ args = { "<expr>", "%", "&filetype == 'oil' ? bufname('%')[6:] : '%'" } })
 
