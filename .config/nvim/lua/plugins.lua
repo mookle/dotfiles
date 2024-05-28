@@ -1,7 +1,4 @@
 return {
-    {
-        'Feel-ix-343/markdown-oxide',
-    },
     -- indentation styling
     {
         "lukas-reineke/indent-blankline.nvim",
