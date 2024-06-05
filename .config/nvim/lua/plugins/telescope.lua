@@ -1,4 +1,4 @@
--- This layout config requires minor modifications to the "horizontal" layout:
+-- A couple of tweaks to make the stacked search layout look better:
 --
 -- diff --git a/lua/telescope/pickers/layout_strategies.lua b/lua/telescope/pickers/layout_strategies.lua
 -- index 7af7761..29df91e 100644
@@ -22,50 +22,56 @@
 --      elseif layout_config.prompt_position == "bottom" then
 --        results.line = preview.line
 --        prompt.line = results.line + results.height + 1 + bs
-
-local no_titles = {
-    prompt_title = false,
-    results_title = false,
-    preview_title = false,
-}
-
 return {
+    -- Fuzzy file finder
     "nvim-telescope/telescope.nvim",
     dependencies = {
         "nvim-lua/plenary.nvim",
     },
-    opts = {
-        defaults = {
-            layout_config = {
-                width = 145,
-                height = 45,
-                prompt_position = "top",
-                preview_width = 80,
+    config = function(args, opts)
+        local no_titles = {
+            results_title = false,
+            preview_title = false,
+        }
+        require("telescope").setup({
+            defaults = {
+                borderchars = {
+                    prompt = { "─", "│", " ", "│", "╭", "╮", "│", "│" },
+                    results = { "─", "│", "─", "│", "├", "┤", "╯", "╰" },
+                    preview = { "─", "│", "─", "│", "╭", "╮", "╯", "╰" },
+                },
+                layout_config = {
+                    width = 0.8,
+                    height = 0.8,
+                    prompt_position = "top",
+                    preview_width = 0.7,
+                },
+                mappings = {
+                    i = {
+                        ["<esc>"] = require('telescope.actions').close,
+                    },
+                },
+                sorting_strategy = "ascending",
             },
-            sorting_strategy = "ascending",
-            borderchars = {
-                prompt = { "─", "│", " ", "│", "╭", "╮", "│", "│" },
-                results = { "─", "│", "─", "│", "├", "┤", "╯", "╰" },
-                preview = { "─", "│", "─", "│", "╭", "╮", "╯", "╰" },
+            pickers = {
+                find_files = no_titles,
+                live_grep = no_titles,
+                buffers = no_titles,
+                oldfiles = no_titles,
+                quickfix = no_titles,
+                loclist = no_titles,
+                jumplist = no_titles,
             },
-        },
-        pickers = {
-            find_files = no_titles,
-            live_grep = no_titles,
-            oldfiles = no_titles,
-        },
-    },
-    config = function(args)
+        })
+        -- keymaps
         local map = require("utils").map
         local builtin = require("telescope.builtin")
-        args.opts.defaults.mappings = {
-            i = {
-                ["<esc>"] = require("telescope.actions").close
-            },
-        }
-        require("telescope").setup(args.opts)
         map("n", "<space>o", builtin.find_files, {})
         map("n", "<space>/", builtin.live_grep, {})
+        map("n", "<space>b", builtin.buffers, {})
         map("n", "<space>h", builtin.oldfiles, {})
+        map("n", "<space>lq", builtin.quickfix, {})
+        map("n", "<space>ll", builtin.loclist, {})
+        map("n", "<space>lj", builtin.jumplist, {})
     end,
 }
