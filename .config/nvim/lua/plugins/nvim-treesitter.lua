@@ -11,6 +11,7 @@ return {
             "erlang",
             "eex",
             "gdscript",
+            "go",
             "godot_resource",
             "scala",
             "yaml",
