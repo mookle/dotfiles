@@ -1,4 +1,5 @@
 return {
+    -- Godot/GDScript integration
     "habamax/vim-godot",
     dependencies = {
         "neovim/nvim-lspconfig",
