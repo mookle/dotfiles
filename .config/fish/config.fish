@@ -27,3 +27,5 @@ alias bb="gamedev ~/src/botb/godot"
 # git alias for managing the dotfile repo.
 # See https://gitlab.com/mookle/dotfiles for more info
 alias dot="git --work-tree=$HOME"
+
+zoxide init fish | source
