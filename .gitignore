@@ -29,6 +29,8 @@
 
 !/.config/appimagelauncher.cfg
 
+!/.config/starship.toml
+
 !/.lein
 
 !/.ssh

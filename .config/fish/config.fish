@@ -29,3 +29,8 @@ alias bb="gamedev ~/src/botb/godot"
 alias dot="git --work-tree=$HOME"
 
 zoxide init fish | source
+
+# Starship prompt
+starship init fish | source
+enable_transience
+

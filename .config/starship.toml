@@ -1,0 +1,72 @@
+"$schema" = 'https://starship.rs/config-schema.json'
+
+add_newline = true
+
+palette = 'mookle'
+
+format = """
+$directory\
+${custom.git_branch}\
+$fill\
+$elixir\
+$golang\
+$rust\
+$time\
+$line_break\
+$character\
+"""
+
+[fill]
+symbol = ' '
+
+[palettes.mookle]
+yellow = '#edc77a'
+orange = '#d26c38'
+red = '#e67c7f'
+pink = '#ed9294'
+aqua = '#7fbcb4'
+green = '#a9c181'
+pale_blue = '#7ac9c0'
+cream = '#e7dcc4'
+stone = '#b2a790'
+grey = '#45525c'
+dark_grey = '#2c343a'
+
+[directory]
+style = 'bg:dark_grey fg:cream'
+format = "[  $path  [▍](fg:grey)]($style)"
+truncation_length = 3
+truncation_symbol = "…/"
+truncate_to_repo = false
+
+[custom.git_branch]
+when = 'git remote -v | grep -v "mookle/dotfiles" > /dev/null'
+command = 'git branch --show-current'
+format = '[ $output ]($style)'
+style = 'fg:pink'
+
+[time]
+disabled = false
+style = 'fg:grey'
+format = '[ $time ]($style)'
+time_format = "%T"
+
+[character]
+disabled = false
+success_symbol = '[](bold fg:yellow)'
+error_symbol = '[](bold fg:red)'
+
+[elixir]
+symbol = ""
+style = "fg:stone"
+format = '[$symbol ($version\(OTP $otp_version\))]($style)'
+
+[golang]
+symbol = ""
+style = "fg:stone"
+format = '[$symbol ($version)]($style)'
+
+[rust]
+symbol = ""
+style = "fg:stone"
+format = '[$symbol ($version)]($style)'
