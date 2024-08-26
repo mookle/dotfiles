@@ -7,13 +7,6 @@ return {
             indent = { char = "▏" },
         }
     },
-    -- string/token wrapping
-    {
-        "tpope/vim-surround",
-        dependencies = {
-            "tpope/vim-repeat"
-        },
-    },
     -- highlight trailing whitespace
     { 'ntpeters/vim-better-whitespace' },
     -- dynamic column limit display
