@@ -7,8 +7,8 @@ bind \e\[A 'history --merge ; up-or-search'
 
 # TODO parameterise this block
 # Default edit
-set -gx EDITOR /usr/bin/nvim
-set -gx VISUAL /usr/bin/nvim
+set -gx EDITOR ~/.local/bin/nvim
+set -gx VISUAL ~/.local/bin/nvim
 
 alias ll='ls -lAhv'
 # BEGIN ANSIBLE MANAGED BLOCK: asdf config
