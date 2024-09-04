@@ -17,7 +17,6 @@ require("lazy").setup({
     {import = "colorscheme"},
 })
 
-vim.o.background = "dark"
 vim.cmd("colorscheme forestbones")
 
 --vim.cmd.cabbr({ args = { "<expr>", "%", "&filetype == 'oil' ? bufname('%')[6:] : '%'" } })

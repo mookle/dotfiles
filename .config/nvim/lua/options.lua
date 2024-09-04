@@ -73,3 +73,4 @@ for k,v in pairs(options) do
 end
 
 vim.o.background = "dark"
+vim.g.mapleader = ","
