@@ -10,7 +10,7 @@ bind \e\[A 'history --merge ; up-or-search'
 set -gx EDITOR ~/.local/bin/nvim
 set -gx VISUAL ~/.local/bin/nvim
 
-alias ll='ls -lAhv'
+alias ll='ls -lAhvN --group-directories-first'
 # BEGIN ANSIBLE MANAGED BLOCK: asdf config
 source ~/.asdf/asdf.fish
 # END ANSIBLE MANAGED BLOCK: asdf config
