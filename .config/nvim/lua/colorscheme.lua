@@ -7,11 +7,14 @@ return {
             "rktjmp/lush.nvim",
         },
         config = function()
-            --vim.g.neobones_darkness = 'warm'
-            vim.g.neobones_lighten_noncurrent_window = true
-            vim.g.rosebones_lighten_noncurrent_window = true
-            vim.g.zenwritten_darkness = 'warm'
-            vim.g.zenwritten_lighten_noncurrent_window = true
+            local opts = {
+                darkness = 'stark',
+                lighten_noncurrent_window = true,
+            }
+            vim.g.forestbones = opts
+            vim.g.neobones = opts
+            vim.g.rosebones = opts
+            vim.g.zenwritten = opts
         end,
     },
     {
