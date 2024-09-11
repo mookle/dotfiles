@@ -31,5 +31,7 @@ return {
             { "<c-k>", "<cmd>TmuxNavigateUp<cr>" },
             { "<c-l>", "<cmd>TmuxNavigateRight<cr>" },
         },
-    }
+    },
+    -- multiline cursor
+    { 'mg979/vim-visual-multi' },
 }
