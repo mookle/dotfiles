@@ -1,13 +1,32 @@
 return {
-    'mookle/autobot-vim',
-    'jacoborus/tender.vim',
-    'sainnhe/sonokai',
-    'sainnhe/gruvbox-material',
-    'morhetz/gruvbox',
     {
-        "mcchrish/zenbones.nvim",
+        'zaldih/themery.nvim',
+        config = function()
+            require("themery").setup({
+                themes = {
+                    'nord',
+                    'nordbones',
+                    'rosebones',
+                    'nightfox',
+                    'noctis_minimus',
+                    'forestbones',
+                    'terafox',
+                    'neobones',
+                    'kanagawa-paper',
+                    'gruvbox-baby',
+                    'zenbones',
+                }
+            })
+        end,
+    },
+    'sho-87/kanagawa-paper.nvim',
+    'luisiacc/gruvbox-baby',
+    'EdenEast/nightfox.nvim',
+    'talha-akram/noctis.nvim',
+    {
+        'mcchrish/zenbones.nvim',
         dependencies = {
-            "rktjmp/lush.nvim",
+            'rktjmp/lush.nvim',
         },
         config = function()
             local opts = {
@@ -21,44 +40,14 @@ return {
         end,
     },
     {
-        'EdenEast/nightfox.nvim',
-        opts = {
-            groups = {
-                all = {
-                    -- Revert to Hop's default highlight colours
-                    HopNextKey = { fg = "#ff007c" },
-                    HopNextKey1 = { fg = "#00dfff" },
-                    HopNextKey2 = { fg = "#2b8db3" },
-                    HopUnmatched = { fg = "#666666" },
-                }
-            }
-        },
-    },
-    {
-        "rose-pine/neovim",
-        name = "rose-pine",
-        config = function()
-            require("rose-pine").setup({
-                disable_italics = true,
-            })
-        end,
-    },
-    {
         'shaunsingh/nord.nvim',
         init = function()
             vim.g.nord_contrast = true
-            vim.g.nord_borders = false
+            vim.g.nord_borders = true
             vim.g.nord_disable_background = false
             vim.g.nord_italic = false
             vim.g.nord_uniform_diff_background = true
-            vim.g.nord_bold = true
+            vim.g.nord_bold = false
         end,
-    },
-    {
-        'sainnhe/everforest',
-        init = function()
-            vim.g.everforest_background = 'hard'
-            vim.g.everforest_enable_italic = true
-        end
     },
 }

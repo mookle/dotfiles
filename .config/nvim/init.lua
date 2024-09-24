@@ -17,8 +17,6 @@ require("lazy").setup({
     {import = "colorscheme"},
 })
 
-vim.cmd("colorscheme forestbones")
-
 --vim.cmd.cabbr({ args = { "<expr>", "%", "&filetype == 'oil' ? bufname('%')[6:] : '%'" } })
 
 --local augroup_cdpwd = vim.api.nvim_create_augroup('augroup_cdpwd', { clear = true })
