@@ -9,4 +9,16 @@ function M.map(mode, input, cmd, opts)
     vim.keymap.set(mode, input, cmd, options)
 end
 
+-- shallow merge two tables
+function M.merge(t1, t2)
+    local merged = {}
+    for k,v in pairs(t1) do
+        merged[k] = v
+    end
+    for k,v in pairs(t2) do
+        merged[k] = v
+    end
+    return merged
+end
+
 return M
