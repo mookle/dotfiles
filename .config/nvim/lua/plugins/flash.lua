@@ -1,9 +1,8 @@
-local labels = "tnseriaogmplfuwyqbjdhdcxzkv"
+local labels = 'tnseriaogmplfuwyqbjdhdcxzkv'
 
 return {
-    "folke/flash.nvim",
-    event = "VeryLazy",
-    ---@type Flash.Config
+    'folke/flash.nvim',
+    event = 'VeryLazy',
     opts = {
         labels = labels,
         search = {
@@ -17,28 +16,31 @@ return {
             },
         },
         modes = {
+            search = {
+                enabled = true,
+            },
             treesitter = {
                 labels = labels,
             },
         }
     },
     keys = {
-    {
-        "<space><cr>",
-        mode = { "n", "o", "x" },
-        function()
-            require("flash").treesitter()
-        end,
-        desc = "Flash Treesitter",
+        {
+            '<space><cr>',
+            mode = { 'n', 'o', 'x' },
+            function()
+                require('flash').treesitter()
+            end,
+            desc = 'Select scope by label',
+        },
+        {
+            '<space>t',
+            mode = { 'n', 'o', 'x' },
+            function()
+                require('flash').treesitter_search()
+            end,
+            desc = 'Select scope by jump search',
+        },
     },
-    {
-        "<space>t",
-        mode = { "n", "o", "x" },
-        function()
-            require("flash").treesitter_search()
-        end,
-        desc = "Flash Treesitter Search",
-    },
-  },
 }
 
