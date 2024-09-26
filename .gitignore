@@ -27,6 +27,8 @@
 !/.config/tmux
 /.config/tmux/plugins
 
+!/.config/zk
+
 !/.config/appimagelauncher.cfg
 
 !/.config/starship.toml
