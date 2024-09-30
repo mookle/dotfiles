@@ -7,6 +7,7 @@ return {
         labels = labels,
         search = {
             multi_window = false,
+            wrap = false,
         },
         label = {
             uppercase = false,
@@ -14,6 +15,8 @@ return {
                 enabled = true,
                 shade = 4,
             },
+            after = false,
+            before = true,
         },
         modes = {
             search = {
@@ -22,20 +25,18 @@ return {
             treesitter = {
                 labels = labels,
             },
-        }
+        },
     },
     keys = {
         {
-            '<space><cr>',
-            mode = { 'n', 'o', 'x' },
+            '<S-cr>',
             function()
                 require('flash').treesitter()
             end,
             desc = 'Select scope by label',
         },
         {
-            '<space>t',
-            mode = { 'n', 'o', 'x' },
+            '<C-cr>',
             function()
                 require('flash').treesitter_search()
             end,
@@ -43,4 +44,3 @@ return {
         },
     },
 }
-
