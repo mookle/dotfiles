@@ -1,5 +1,5 @@
 return {
-    "nvim-lualine/lualine.nvim",
+    'nvim-lualine/lualine.nvim',
     opts = {
         options = {
             section_separators = { left = '', right = '' },
@@ -14,7 +14,23 @@ return {
             lualine_b = {
                 { 'filename', newfile_status = true, path = 3 },
             },
-            lualine_c = { 'diagnostics' },
+            lualine_c = {
+                {
+                    'diagnostics',
+                    symbols = {
+                        error = ' ',
+                        warn = ' ',
+                        hint = ' ',
+                        info = ' ',
+                    },
+                    diagnostics_color = {
+                        error = 'DiagnosticSignError',
+                        warn  = 'DiagnosticSignWarn',
+                        info  = 'DiagnosticSignInfo',
+                        hint  = 'DiagnosticSignHint',
+                    },
+                },
+            },
             lualine_x = { 'branch', 'diff' },
             lualine_y = { 'progress' },
             lualine_z = {
