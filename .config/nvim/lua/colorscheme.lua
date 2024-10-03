@@ -1,6 +1,7 @@
 return {
     {
         'zaldih/themery.nvim',
+        -- cmd = 'Themery',
         config = function()
             require("themery").setup({
                 themes = {
@@ -19,10 +20,22 @@ return {
             })
         end,
     },
-    'sho-87/kanagawa-paper.nvim',
-    'luisiacc/gruvbox-baby',
-    'EdenEast/nightfox.nvim',
-    'talha-akram/noctis.nvim',
+    {
+        'sho-87/kanagawa-paper.nvim',
+        lazy = true,
+    },
+    {
+        'luisiacc/gruvbox-baby',
+        lazy = true,
+    },
+    {
+        'EdenEast/nightfox.nvim',
+        lazy = true,
+    },
+    {
+        'talha-akram/noctis.nvim',
+        lazy = true,
+    },
     {
         'mcchrish/zenbones.nvim',
         dependencies = {
@@ -38,6 +51,7 @@ return {
             vim.g.rosebones = opts
             vim.g.zenwritten = opts
         end,
+        lazy = true,
     },
     {
         'shaunsingh/nord.nvim',
@@ -49,5 +63,6 @@ return {
             vim.g.nord_uniform_diff_background = true
             vim.g.nord_bold = false
         end,
+        lazy = true,
     },
 }

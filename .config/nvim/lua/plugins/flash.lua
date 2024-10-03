@@ -2,7 +2,7 @@ local labels = 'tnseriaogmplfuwyqbjdhdcxzkv'
 
 return {
     'folke/flash.nvim',
-    event = 'VeryLazy',
+    event = { 'BufReadPre', 'BufNewFile' },
     opts = {
         labels = labels,
         search = {

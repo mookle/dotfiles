@@ -1,5 +1,6 @@
 return {
     "gbprod/substitute.nvim",
+    event = 'InsertEnter',
     config = function(_, opts)
         local substitute = require("substitute")
         local map = require("utils").map

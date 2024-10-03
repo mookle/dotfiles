@@ -10,6 +10,7 @@ vim.api.nvim_create_autocmd("BufWritePre", {
 return {
     -- golang integration
     "ray-x/go.nvim",
+    ft = { 'go', 'gomod' },
     dependencies = {
         "ray-x/guihua.lua",
         "neovim/nvim-lspconfig",
@@ -19,7 +20,5 @@ return {
         require("go").setup()
         require("lspconfig").gopls.setup({})
     end,
-    event = {"CmdlineEnter"},
-    ft = {"go", 'gomod'},
     build = ':lua require("go.install").update_all_sync()'
 }

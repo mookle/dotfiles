@@ -22,7 +22,7 @@ return {
             }
         }
     end,
-    event = { "BufReadPre", "BufNewFile" },
+    ft = 'elixir',
     version = "*",
 }
 

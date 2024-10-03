@@ -2,6 +2,7 @@ return {
     -- Dynamic column limit display
     {
         'Bekaboo/deadcolumn.nvim',
+        event = 'InsertEnter',
     },
     -- Indentation styling
     {
@@ -9,6 +10,7 @@ return {
         main = "ibl",
         opts = {
             indent = { char = "▏" },
-        }
+        },
+        event = { 'BufReadPre *.*', 'BufNewFile' }
     },
 }

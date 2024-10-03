@@ -1,4 +1,3 @@
-local builtin = require('telescope.builtin')
 return {
     -- Fuzzy file finder
     "nvim-telescope/telescope.nvim",
@@ -37,12 +36,12 @@ return {
         })
     end,
     keys = {
-        { '<space>o', builtin.find_files },
-        { '<space>/', builtin.live_grep },
-        { '<space>b', builtin.buffers },
-        { '<space>h', builtin.oldfiles },
-        { '<space>lq', builtin.quickfix },
-        { '<space>ll', builtin.loclist },
-        { '<space>lj', builtin.jumplist },
+        { '<space>o', '<cmd>Telescope find_files<cr>' },
+        { '<space>/', '<cmd>Telescope live_grep<cr>' },
+        { '<space>b', '<cmd>Telescope buffers<cr>' },
+        { '<space>h', '<cmd>Telescope oldfiles<cr>' },
+        { '<space>lq', '<cmd>Telescope quickfix<cr>' },
+        { '<space>ll', '<cmd>Telescope loclist<cr>' },
+        { '<space>lj', '<cmd>Telescope jumplist<cr>' },
     },
 }

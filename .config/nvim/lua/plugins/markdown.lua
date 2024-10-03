@@ -38,5 +38,6 @@ return {
             },
             checkbox = { enabled = false },
         },
+        ft = 'markdown',
    },
 }

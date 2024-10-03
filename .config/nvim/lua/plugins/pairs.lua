@@ -2,13 +2,13 @@ return {
     -- Automatically add/remove bracket pairs
     {
         'windwp/nvim-autopairs',
-        event = "InsertEnter",
+        event = 'InsertEnter',
         config = true
     },
     -- Add/remove/edit surrounding pairs
     {
-        "kylechui/nvim-surround",
-        event = "VeryLazy",
+        'kylechui/nvim-surround',
+        event = 'InsertEnter',
         config = true,
     },
 }

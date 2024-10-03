@@ -1,5 +1,6 @@
 return {
     "nvim-treesitter/nvim-treesitter",
+    event = { 'BufReadPre *.*', 'BufNewFile' },
     init = function()
         vim.wo.foldmethod = "expr"
         vim.wo.foldexpr = "nvim_treesitter#foldexpr()"

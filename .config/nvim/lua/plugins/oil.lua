@@ -1,5 +1,6 @@
 return {
     "stevearc/oil.nvim",
+    lazy = false,
     opts = {
         keymaps = {
             ["<C-v>"] = "actions.select_vsplit",
@@ -11,8 +12,7 @@ return {
             show_hidden = true,
         },
     },
-    config = function(args)
-        require("oil").setup(args.opts)
-        require('utils').map('n', '<space>.', ':Oil<CR>')
-    end,
+    keys = {
+        { '<space>.', '<cmd>Oil<cr>' }
+    },
 }
