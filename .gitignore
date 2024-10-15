@@ -22,6 +22,7 @@
 /.config/fish/functions
 
 !/.config/kitty/
+/.config/kitty/kitty.conf.bak
 
 !/.config/nvim
 /.config/nvim/lazy-lock.json
