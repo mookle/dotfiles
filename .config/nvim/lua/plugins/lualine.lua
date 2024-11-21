@@ -19,10 +19,10 @@ return {
                 {
                     'diagnostics',
                     symbols = {
-                        error = ' ',
-                        warn = ' ',
-                        hint = ' ',
-                        info = ' ',
+                        error = '',
+                        warn = '',
+                        hint = '󰌵',
+                        info = '',
                     },
                     diagnostics_color = {
                         error = 'DiagnosticSignError',
