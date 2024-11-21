@@ -43,5 +43,6 @@ return {
         { '<space>lq', '<cmd>Telescope quickfix<cr>' },
         { '<space>ll', '<cmd>Telescope loclist<cr>' },
         { '<space>lj', '<cmd>Telescope jumplist<cr>' },
+        { '<space>d', '<cmd>Telescope diagnostics<cr>' },
     },
 }
