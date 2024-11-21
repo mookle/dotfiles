@@ -6,8 +6,8 @@ return {
     opts = {
         labels = labels,
         search = {
-            multi_window = false,
-            wrap = false,
+            multi_window = true,
+            wrap = true,
         },
         label = {
             uppercase = false,
