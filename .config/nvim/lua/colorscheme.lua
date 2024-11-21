@@ -21,6 +21,7 @@ return {
                     'two-firewatch',
                     'pink-moon',
                     'neofusion',
+                    'tokyobones',
                 }
             })
         end,
@@ -41,13 +42,14 @@ return {
         },
         config = function()
             local opts = {
-                darkness = 'stark',
+                darkness = 'warm',
                 lighten_noncurrent_window = true,
             }
             vim.g.forestbones = opts
             vim.g.neobones = opts
             vim.g.rosebones = opts
             vim.g.zenwritten = opts
+            vim.g.tokyobones = opts
         end,
         lazy = true,
     },
@@ -59,7 +61,7 @@ return {
             vim.g.nord_disable_background = true
             vim.g.nord_italic = true
             vim.g.nord_uniform_diff_background = true
-            vim.g.nord_bold = true
+            vim.g.nord_bold = false
         end,
         lazy = true,
     },
