@@ -8,7 +8,7 @@ return {
     end,
     opts = {
         signs = {
-            left = "",
+            left = "",
             right = "",
         },
         blend = {

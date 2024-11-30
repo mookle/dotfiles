@@ -53,7 +53,7 @@ local options = {
     -- foldlevel: how many levels before folds are closed
     --
     foldmethod = "expr",
-    foldexpr = "nvim_treesitter#foldexpr()",
+    foldexpr = "v:lua.vim.lsp.foldexpr()",
     --foldlevel = 3,
 
     --

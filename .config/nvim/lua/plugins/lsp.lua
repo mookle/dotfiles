@@ -70,6 +70,8 @@ return {
             map('n', '<space>f', function()
                 vim.lsp.buf.format { async = true }
             end, opts)
+
+            require('lspconfig').clojure_lsp.setup({})
         end,
     },
 }

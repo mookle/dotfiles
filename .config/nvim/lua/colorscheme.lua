@@ -22,9 +22,16 @@ return {
                     'pink-moon',
                     'neofusion',
                     'tokyobones',
+                    'tokyonight',
                 }
             })
         end,
+    },
+    {
+        'folke/tokyonight.nvim',
+        lazy = false,
+        priority = 1000,
+        opts = {},
     },
     { 'sts10/vim-pink-moon', lazy = true },
     { 'nvimdev/oceanic-material', lazy = true },
