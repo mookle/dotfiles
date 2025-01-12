@@ -1,65 +1,39 @@
--- See https://github.com/hrsh7th/nvim-cmp#basic-configuration
 return {
-    "hrsh7th/nvim-cmp",
-    event = "InsertEnter",
+    'saghen/blink.cmp',
     dependencies = {
-        "hrsh7th/cmp-buffer",
-        "hrsh7th/cmp-nvim-lsp",
-        "hrsh7th/cmp-nvim-lsp-signature-help",
-        "hrsh7th/cmp-path",
-        "dcampos/nvim-snippy",
-        "dcampos/cmp-snippy",
+        'rafamadriz/friendly-snippets',
     },
-    opts = function()
-        local whl = "Normal:Normal,FloatBorder:FloatBorderOverride,CursorLine:Visual,Search:None"
-        local cmp = require("cmp")
-        return {
-            preselect = cmp.PreselectMode.None,
-            snippet = {
-                expand = function(args)
-                    require("snippy").expand_snippet(args.body)
-                end,
+    version = '*',
+    ---@module 'blink.cmp'
+    ---@type blink.cmp.Config
+    opts = {
+        keymap = {
+            preset = 'enter',
+            ['<Tab>'] = { 'select_next', 'fallback' },
+            ['<S-Tab>'] = { 'select_prev', 'fallback' },
+        },
+        completion = {
+            list = {
+                selection = {
+                    preselect = false,
+                }
             },
-            mapping = {
-                ["<S-tab>"] = cmp.mapping.select_prev_item(),
-                ["<up>"] = cmp.mapping.select_prev_item(),
-                ["<tab>"] = cmp.mapping.select_next_item(),
-                ["<down>"] = cmp.mapping.select_next_item(),
-                ["<S-up>"] = cmp.mapping.scroll_docs(-1),
-                ["<S-down>"] = cmp.mapping.scroll_docs(1),
-                ["<cr>"] = cmp.mapping.confirm({
-                    behavior = cmp.ConfirmBehavior.Insert,
-                    select = false,
-                }),
-            },
-            window = {
-                completion = cmp.config.window.bordered({ winhighlight = whl }),
-                documentation = cmp.config.window.bordered({ winhighlight = whl }),
-            },
-            sources = cmp.config.sources({
-                {
-                    name = "nvim_lsp",
-                    option = {
-                        markdown_oxide = {
-                            keyword_pattern = [[\(\\(k\| \|\/\|#\)\+]]
-                        },
-                    },
-                },
-                { name = "buffer" },
-                { name = "snippy" },
-                { name = "path" },
-            }),
-        }
-    end,
-    config = function(args)
-        -- menuone: popup even when there's only one match
-        -- noinsert: Do not insert text until a selection is made
-        -- noselect: Do not auto-select, nvim-cmp plugin will handle this for us.
-        vim.o.completeopt = "menuone,noinsert,noselect"
-        -- Avoid showing extra messages when using completion
-        vim.opt.shortmess = vim.opt.shortmess + "c"
-        -- Cheeky hack to fix the border colour used by nvim-cmp
-        vim.api.nvim_set_hl(0, "FloatBorderOverride", { fg = "#254147" })
-        require("cmp").setup(args.opts())
-    end,
+        },
+        signature = { enabled = true },
+        appearance = {
+            -- Sets the fallback highlight groups to nvim-cmp's highlight groups
+            -- Useful for when your theme doesn't support blink.cmp
+            -- Will be removed in a future release
+            use_nvim_cmp_as_default = true,
+            -- Set to 'mono' for 'Nerd Font Mono' or 'normal' for 'Nerd Font'
+            -- Adjusts spacing to ensure icons are aligned
+            nerd_font_variant = 'mono'
+        },
+        -- Default list of enabled providers defined so that you can extend it
+        -- elsewhere in your config, without redefining it, due to `opts_extend`
+        sources = {
+            default = { 'lsp', 'path', 'snippets', 'buffer' },
+        },
+    },
+    opts_extend = { "sources.default" }
 }

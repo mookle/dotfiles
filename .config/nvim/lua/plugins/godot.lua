@@ -4,7 +4,8 @@ return {
     ft = 'gdscript',
     dependencies = {
         "neovim/nvim-lspconfig",
-        "hrsh7th/cmp-nvim-lsp",
+        -- since moving to blink.cmp, this dep causes problems even in other filetypes
+        -- "hrsh7th/cmp-nvim-lsp",
     },
     config = function()
         require("lspconfig").gdscript.setup {
