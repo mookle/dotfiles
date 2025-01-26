@@ -1,18 +1,7 @@
 return {
     {
-        -- visual LSP loading/progress
-        "j-hui/fidget.nvim",
-        lazy = true,
-        dependencies = {
-            "neovim/nvim-lspconfig",
-        },
-        tag = "legacy",
-        config = true,
-    },
-    {
         -- LSP breadcrumbs / jump points
         "SmiteshP/nvim-navbuddy",
-        lazy = true,
         keys = {
             { '<space>n', '<cmd>NavBuddy<cr>' },
         },
@@ -43,6 +32,10 @@ return {
     },
     {
         "neovim/nvim-lspconfig",
+        dependencies = {
+            -- visual LSP loading/progress
+            { "j-hui/fidget.nvim", config = true }
+        },
         event = { 'BufReadPre *.*', 'BufNewFile' },
         init = function()
             vim.diagnostic.config({

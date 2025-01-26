@@ -22,7 +22,7 @@ return {
             show_all_diags_on_cursorline = true,
             virt_texts = {
                 -- keep diagnostics to the left of gitsigns
-                priority = 10,
+                priority = 1000,
             },
         },
     },

@@ -9,6 +9,6 @@ return {
     },
     opts = {},
     keys = {
-        { '<leader>ft', '<cmd>Neotree toggle<cr>'}
+        { '<leader>fb', '<cmd>Neotree toggle<cr>'}
     },
 }
