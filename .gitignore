@@ -30,6 +30,8 @@
 !/.config/tmux
 /.config/tmux/plugins
 
+!/.config/wezterm
+
 !/.config/zk
 
 !/.config/appimagelauncher.cfg

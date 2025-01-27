@@ -7,10 +7,11 @@ return {
     version = '*',
     opts = {
         keymap = {
-
             preset = 'enter',
             ['<Tab>'] = { 'select_next', 'fallback' },
             ['<S-Tab>'] = { 'select_prev', 'fallback' },
+            -- disable the keymap added by `signature`; I want to use it for buffer/mux navigation
+            ['<C-k>'] = {}
         },
         completion = {
             ghost_text = { enabled = true },

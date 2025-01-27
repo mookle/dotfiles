@@ -1,21 +1,13 @@
 return {
-    -- unified nvim/tmux buffer/pane navigation
-    'christoomey/vim-tmux-navigator',
-    init = function()
-        vim.g.tmux_navigator_no_wrap = 1
-        vim.g.tmux_navigator_no_mappings = 1
-        vim.g.tmux_navigator_save_on_switch = 1 -- write current buffer if changed
+    'numToStr/Navigator.nvim',
+    config = function()
+        require('Navigator').setup({})
     end,
-    cmd = {
-        "TmuxNavigateLeft",
-        "TmuxNavigateDown",
-        "TmuxNavigateUp",
-        "TmuxNavigateRight",
-    },
+    lazy = false,
     keys = {
-        { "<c-h>", "<cmd>TmuxNavigateLeft<cr>" },
-        { "<c-j>", "<cmd>TmuxNavigateDown<cr>" },
-        { "<c-k>", "<cmd>TmuxNavigateUp<cr>" },
-        { "<c-l>", "<cmd>TmuxNavigateRight<cr>" },
+        { "<c-h>", "<cmd>NavigatorLeft<cr>" },
+        { "<c-j>", "<cmd>NavigatorDown<cr>" },
+        { "<c-k>", "<cmd>NavigatorUp<cr>" },
+        { "<c-l>", "<cmd>NavigatorRight<cr>" },
     },
 }
