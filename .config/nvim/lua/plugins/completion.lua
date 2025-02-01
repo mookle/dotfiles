@@ -15,6 +15,18 @@ return {
         },
         completion = {
             ghost_text = { enabled = true },
+            list ={
+                selection = {
+                    preselect = function(ctx)
+                        -- don't preselect the first menu item on the cmdline (inc search)
+                        return ctx.mode ~= 'cmdline' and not require('blink.cmp').snippet_active({ direction = 1 })
+                    end,
+                    auto_insert = function(ctx)
+                        -- don't auto_insert menu itmems on the cmdline (inc search)
+                        return ctx.mode ~= 'cmdline' and not require('blink.cmp').snippet_active({ direction = 1 })
+                    end,
+                }
+            }
         },
         signature = { enabled = true },
         appearance = {
