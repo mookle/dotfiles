@@ -1,33 +1,5 @@
 return {
     {
-        'zaldih/themery.nvim',
-        -- cmd = 'Themery',
-        config = function()
-            require("themery").setup({
-                themes = {
-                    'nord',
-                    'nordbones',
-                    'rosebones',
-                    'rose-pine-moon',
-                    'oceanic_material',
-                    'OceanicNext',
-                    'nightfox',
-                    'noctis_minimus',
-                    'kanagawa',
-                    'kanagawa-paper',
-                    'forestbones',
-                    'terafox',
-                    'neobones',
-                    'two-firewatch',
-                    'pink-moon',
-                    'neofusion',
-                    'tokyobones',
-                    'tokyonight',
-                }
-            })
-        end,
-    },
-    {
         'folke/tokyonight.nvim',
         lazy = false,
         priority = 1000,
