@@ -1,7 +1,7 @@
 -- Picker layout merging is a bit unintuitive. Setting a picker-global default,
 -- whether based on preset or not, makes it necessary to define a complete
--- override for each layout type. It's cleaner/clearer to parameterise the
--- necessary layouts and set each picker source individually.
+-- override for each layout type. It's cleaner/clearer to capture the layouts
+-- as variables and set each picker source explicitly.
 local default = {
     layout = {
         box = 'horizontal',
@@ -20,6 +20,16 @@ local default = {
 }
 local select = { preset = 'select' }
 local sidebar = { preset = 'sidebar' }
+local function toggle_explorer()
+    local ps = Snacks.picker.get({ source='explorer' })
+    if next(ps) then
+        for _, p in pairs(ps) do
+            p:close()
+        end
+    else
+        Snacks.explorer.reveal()
+    end
+end
 
 return {
     'folke/snacks.nvim',
@@ -36,7 +46,12 @@ return {
                 colorschemes = { layout = default },
                 diagnostics = { layout = default },
                 explorer = {
-                    focus = 'input',
+                    auto_close = false,
+                    diagnostics = true,
+                    focus = 'list',
+                    follow_file = true,
+                    git_status = true,
+                    git_untracked = true,
                 },
                 files = { layout = select },
                 grep = { layout = default },
@@ -72,18 +87,19 @@ return {
         statuscolumn = { enabled = true },
     },
     keys = {
+        { '<leader>fb', toggle_explorer },
+        { '<space>/', function() Snacks.picker.grep() end },
         { '<space>b', function() Snacks.picker.buffers() end },
         { '<space>cs', function() Snacks.picker.colorschemes() end },
         { '<space>d', function() Snacks.picker.diagnostics() end },
-        { '<leader>fb', function() Snacks.picker.explorer() end },
-        { '<space>o', function() Snacks.picker.files() end },
-        { '<space>/', function() Snacks.picker.grep() end },
-        { '<space>lj', function() Snacks.picker.jumps() end },
-        { '<space>k', function() Snacks.picker.keymaps() end },
-        { '<space>ll', function() Snacks.picker.loclist() end },
         { '<space>gr', function() Snacks.picker.lsp_symbols() end },
-        { '<space>p', function() Snacks.picker.projects() end },
-        { '<space>lq', function() Snacks.picker.qflist() end },
         { '<space>h', function() Snacks.picker.recent() end },
+        { '<space>k', function() Snacks.picker.keymaps() end },
+        { '<space>lj', function() Snacks.picker.jumps() end },
+        { '<space>ll', function() Snacks.picker.loclist() end },
+        { '<space>lq', function() Snacks.picker.qflist() end },
+        { '<space>o', function() Snacks.picker.files() end },
+        { '<space>p', function() Snacks.picker.projects() end },
+        { '<space>r', function() Snacks.picker.resume() end },
     },
 }

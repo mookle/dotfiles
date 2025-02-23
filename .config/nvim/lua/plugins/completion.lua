@@ -14,16 +14,18 @@ return {
             ['<C-k>'] = {}
         },
         completion = {
-            ghost_text = { enabled = true },
+            ghost_text = { enabled = false },
             list ={
                 selection = {
                     preselect = function(ctx)
+                        return false
                         -- don't preselect the first menu item on the cmdline (inc search)
-                        return ctx.mode ~= 'cmdline' and not require('blink.cmp').snippet_active({ direction = 1 })
+                        -- return ctx.mode ~= 'cmdline' and not require('blink.cmp').snippet_active({ direction = 1 })
                     end,
                     auto_insert = function(ctx)
+                        return false
                         -- don't auto_insert menu itmems on the cmdline (inc search)
-                        return ctx.mode ~= 'cmdline' and not require('blink.cmp').snippet_active({ direction = 1 })
+                        -- return ctx.mode ~= 'cmdline' and not require('blink.cmp').snippet_active({ direction = 1 })
                     end,
                 }
             }
