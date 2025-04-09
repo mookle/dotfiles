@@ -20,16 +20,6 @@ local default = {
 }
 local select = { preset = 'select' }
 local sidebar = { preset = 'sidebar' }
-local function toggle_explorer()
-    local ps = Snacks.picker.get({ source='explorer' })
-    if next(ps) then
-        for _, p in pairs(ps) do
-            p:close()
-        end
-    else
-        Snacks.explorer.reveal()
-    end
-end
 
 return {
     'folke/snacks.nvim',
@@ -41,18 +31,11 @@ return {
         notifier = { enabled = true },
         picker = {
             enabled = true,
+            main = { file = false, current = true },
             sources = {
                 buffers = { layout = select },
                 colorschemes = { layout = default },
                 diagnostics = { layout = default },
-                explorer = {
-                    auto_close = false,
-                    diagnostics = true,
-                    focus = 'list',
-                    follow_file = true,
-                    git_status = true,
-                    git_untracked = true,
-                },
                 files = { layout = select },
                 grep = { layout = default },
                 jumps = { layout = default },
@@ -87,7 +70,6 @@ return {
         statuscolumn = { enabled = true },
     },
     keys = {
-        { '<leader>fb', toggle_explorer },
         { '<space>/', function() Snacks.picker.grep() end },
         { '<space>b', function() Snacks.picker.buffers() end },
         { '<space>cs', function() Snacks.picker.colorschemes() end },

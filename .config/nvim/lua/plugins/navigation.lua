@@ -3,7 +3,7 @@ return {
     config = function()
         require('Navigator').setup({})
     end,
-    lazy = false,
+    event = { 'BufReadPre *.*', 'BufNewFile' },
     keys = {
         { "<c-h>", "<cmd>NavigatorLeft<cr>" },
         { "<c-j>", "<cmd>NavigatorDown<cr>" },

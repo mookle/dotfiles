@@ -59,7 +59,6 @@ return {
             map('n', 'gi', vim.lsp.buf.implementation, opts)
             map('n', 'gr', vim.lsp.buf.references, opts)
             map('n', 'K', vim.lsp.buf.hover, opts)
-            map('n', '<C-k>', vim.lsp.buf.signature_help, opts)
             map('n', '<space>f', function()
                 vim.lsp.buf.format { async = true }
             end, opts)
