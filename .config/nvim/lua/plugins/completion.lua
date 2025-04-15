@@ -4,7 +4,7 @@ return {
         'rafamadriz/friendly-snippets',
         'mikavilpas/blink-ripgrep.nvim',
     },
-    version = '*',
+    version = '1.*',
     opts = {
         keymap = {
             preset = 'enter',
@@ -14,7 +14,10 @@ return {
             ['<C-k>'] = {}
         },
         completion = {
-            ghost_text = { enabled = false },
+            documentation = {
+                auto_show = true,
+            },
+            ghost_text = { enabled = true },
             list ={
                 selection = {
                     preselect = function(ctx)
