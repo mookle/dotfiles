@@ -1,0 +1,28 @@
+[tools]
+# elixir
+elixir = "1.18.4-otp-26"
+elixir-ls = "latest"
+erlang = "26.2.3"
+# rust
+rust = "nightly"
+"cargo:bacon" = "latest"
+# clojure
+clojure = "latest"
+leiningen = "latest"
+# go
+go = "1.24.3"
+# haskell
+stack = "3.5.1"
+# shell tools
+"cargo:presenterm" = "latest"
+bat = "0.25.0"
+fd = "latest"
+fzf = "0.62.0"
+jq= "latest"
+neovim = "nightly"
+ripgrep = "14.1.1"
+"cargo:starship" = "latest"
+xh = "latest"
+yazi = "25.4.8"
+zoxide = "latest"
+

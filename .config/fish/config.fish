@@ -11,6 +11,9 @@ set -gx EDITOR ~/.local/bin/nvim
 set -gx VISUAL ~/.local/bin/nvim
 
 alias ll='ls -lAhvN --group-directories-first'
+
+eval "$(mise activate fish)"
+
 # BEGIN ANSIBLE MANAGED BLOCK: asdf config
 source ~/.asdf/asdf.fish
 # END ANSIBLE MANAGED BLOCK: asdf config

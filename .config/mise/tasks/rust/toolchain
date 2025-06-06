@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+#MISE description="Setup the Rust toolchain for a given version"
+#MISE depends=["check-exists rustup"]
+
+rustup install $1
+rustup default $1
+rustup component add clippy --toolchain $1
+rustup component add rustfmt --toolchain $1
+rustup component add rust-analyzer --toolchain $1
+cargo install cargo-watch

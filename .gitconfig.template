@@ -13,7 +13,7 @@
 [init]
     defaultBranch = main
 [github]
-    user = {{ git_user }}
+    user = mookle
 [merge]
     ff = only
 [pull]
@@ -22,7 +22,7 @@
     followTags = true
     autoSetupRemote = true
 [status]
-    statusUntrackedFiles = all
+    showUntrackedFiles = all
 [user]
-    name = {{ git_user }}
-    email = {{ git_email }}
+    name = ???
+    email = ???

@@ -1,0 +1,58 @@
+#!/usr/bin/env bash
+
+readonly dotfiles_dir="$HOME/code/dotfiles"
+
+echo "[INFO] Installing core tools/deps via system package manager"
+if [[ $(uname -s) == "Darwin" ]]; then # macos
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    brew install git git-lfs stow fish
+elif [[ $(uname -s) == "Linux" ]]; then
+    case $(cat /etc/issue | awk '{print $1}') in
+        Debian|Ubuntu|Pop!_OS)
+            sudo apt-get update -y
+            sudo apt-get install git git-lfs stow fish -y
+            ;;
+        *)
+            echo "Aborting: Unsupported Linux distro"
+            exit 1
+            ;;
+    esac
+else
+    echo "Aborting: Unsupported operating system"
+    exit 1
+fi
+
+if [ ! -d $dotfiles_dir ]; then
+    echo "[INFO] Cloning dotfiles repo"
+    git clone git@gitlab.com:mookle/dotfiles $dotfiles_dir
+
+    # Move .gitconfig into place before stow-ing
+    cp $dotfiles_dir/.gitconfig{.template,}
+
+    echo "[INFO] Stow-ing dotfiles"
+    # The `stow --adopt` / `git restore` pattern allows config to be stow'd
+    # even if it already exists at the target. `stow --adopt` pulls existing
+    # changes into the source dir and `git restore` resets those changes, but
+    # the symlink remains. Essentially a manual `stow --force`.
+    # N.B: This won't work if the target itself is a symlink.
+    stow --dir=$dotfiles_dir --target=$HOME . --adopt
+    git -C $dotfiles_dir restore .
+else
+    echo "========================================================================"
+    echo "[WARNING] Adopting existing config: review `git diff` in '$dotfiles_dir'"
+    echo "========================================================================"
+    stow --dir=$dotfiles_dir --target=$HOME . --adopt
+fi
+
+echo "[INFO] Installing mise"
+curl https://mise.run | sh
+
+echo "[INFO] Installing additional tools"
+mise install
+mise run rust:toolchain nightly
+mise run set-default-shell fish
+mise run fish:plugins
+
+# todo: AppImageLaucher task for wezterm and neovim
+
+echo "[INFO] Don't forget to set \`user.name\` and \`user.email\` in $HOME/.gitconfig"

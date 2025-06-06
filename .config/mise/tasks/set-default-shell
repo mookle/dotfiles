@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+#MISE description="Set the default shell for the current user"
+#MISE depends=["check-exists fish"]
+
+grep -q $(which $1) /etc/shells || echo $(which $1) | tee -a /etc/shells
+
+chsh -s $(which $1) < /dev/tty

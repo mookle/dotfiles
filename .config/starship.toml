@@ -6,7 +6,7 @@ palette = 'mookle'
 
 format = """
 $directory\
-${custom.git_branch}\
+$git_branch\
 $fill\
 $elixir\
 $golang\
@@ -38,12 +38,6 @@ format = "[  $path  [▍](fg:grey)]($style)"
 truncation_length = 3
 truncation_symbol = "…/"
 truncate_to_repo = false
-
-[custom.git_branch]
-when = 'git remote -v | grep -v "mookle/dotfiles" > /dev/null'
-command = 'git branch --show-current'
-format = '[ $output ]($style)'
-style = 'fg:pink'
 
 [time]
 disabled = false
