@@ -34,6 +34,17 @@ config.line_height = 1.2
 
 config.color_scheme = 'kanagawabones'
 
+config.enable_tab_bar = true
+config.use_fancy_tab_bar = false
+config.colors = {
+    tab_bar = {
+        active_tab = {
+            bg_color = '#434343',
+            fg_color = '#999999',
+        }
+    }
+}
+
 config.window_padding = {
     left = 0,
     right = 0,
