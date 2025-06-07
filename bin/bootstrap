@@ -5,12 +5,12 @@ readonly dotfiles_dir="$HOME/code/dotfiles"
 echo "[INFO] Installing core tools/deps via system package manager"
 if [[ $(uname -s) == "Darwin" ]]; then # macos
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-    brew install git git-lfs stow fish
+    brew install git git-lfs stow fish fortune
 elif [[ $(uname -s) == "Linux" ]]; then
     case $(cat /etc/issue | awk '{print $1}') in
         Debian|Ubuntu|Pop!_OS)
             sudo apt-get update -y
-            sudo apt-get install git git-lfs stow fish -y
+            sudo apt-get install git git-lfs stow fish fortune -y
             ;;
         *)
             echo "Aborting: Unsupported Linux distro"
