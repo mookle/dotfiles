@@ -7,10 +7,14 @@ if [[ $(uname -s) == "Darwin" ]]; then # macos
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
     brew install git git-lfs stow fish fortune
 elif [[ $(uname -s) == "Linux" ]]; then
-    case $(cat /etc/issue | awk '{print $1}') in
-        Debian|Ubuntu|Pop!_OS)
+    case $(. /etc/os-release && echo $ID) in
+        debian|ubuntu|pop)
             sudo apt-get update -y
             sudo apt-get install git git-lfs stow fish fortune -y
+            ;;
+        manjaro|arch)
+            sudo pacman -Syuq
+            sudo pacman -Sq --noconfirm git git-lfs stow fish fortune-mod
             ;;
         *)
             echo "Aborting: Unsupported Linux distro"
