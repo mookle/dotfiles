@@ -43,7 +43,7 @@ if [ ! -d $dotfiles_dir ]; then
     git -C $dotfiles_dir restore .
 else
     echo "========================================================================"
-    echo "[WARNING] Adopting existing config: review `git diff` in '$dotfiles_dir'"
+    echo "[WARNING] Adopting existing config: review \`git diff\` in $dotfiles_dir"
     echo "========================================================================"
     stow --dir=$dotfiles_dir --target=$HOME . --adopt
 fi
