@@ -18,7 +18,6 @@ function error_msg() {
     echo_coloured '\033[31m' "[ERROR] $1"
 }
 
-
 if [[ $(uname -s) == "Darwin" ]]; then # macos
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
     brew install git git-lfs stow fish fortune
@@ -27,12 +26,12 @@ elif [[ $(uname -s) == "Linux" ]]; then
         debian|ubuntu|pop)
             info_msg "Installing core tools/deps via apt-get"
             sudo apt-get update -y
-            sudo apt-get install git git-lfs stow fish fortune -y
+            sudo apt-get install git git-lfs stow fish fortune build-essential -y
             ;;
         manjaro|arch)
             info_msg "Installing core tools/deps via pacman"
             sudo pacman -Syuq
-            sudo pacman -Sq --noconfirm git git-lfs stow fish fortune-mod
+            sudo pacman -Sq --noconfirm git git-lfs stow fish fortune-mod base-devel unzip
             ;;
         *)
             error_msg "Unsupported Linux distro"
