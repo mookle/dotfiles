@@ -2,38 +2,57 @@
 
 readonly dotfiles_dir="$HOME/code/dotfiles"
 
-echo "[INFO] Installing core tools/deps via system package manager"
+function echo_coloured() {
+    echo -e "$1$2\033[0m"
+}
+
+function info_msg() {
+    echo_coloured '\033[34m' "[INFO] $1"
+}
+
+function warning_msg() {
+    echo_coloured '\033[33m' "[WARNING] $1"
+}
+
+function error_msg() {
+    echo_coloured '\033[31m' "[ERROR] $1"
+}
+
+
 if [[ $(uname -s) == "Darwin" ]]; then # macos
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
     brew install git git-lfs stow fish fortune
 elif [[ $(uname -s) == "Linux" ]]; then
     case $(. /etc/os-release && echo $ID) in
         debian|ubuntu|pop)
+            info_msg "Installing core tools/deps via apt-get"
             sudo apt-get update -y
             sudo apt-get install git git-lfs stow fish fortune -y
             ;;
         manjaro|arch)
+            info_msg "Installing core tools/deps via pacman"
             sudo pacman -Syuq
             sudo pacman -Sq --noconfirm git git-lfs stow fish fortune-mod
             ;;
         *)
-            echo "Aborting: Unsupported Linux distro"
+            error_msg "Unsupported Linux distro"
             exit 1
             ;;
     esac
 else
-    echo "Aborting: Unsupported operating system"
+    error_msg "Unsupported operating system"
     exit 1
 fi
 
+local dotfiles_dir_exists=0
 if [ ! -d $dotfiles_dir ]; then
-    echo "[INFO] Cloning dotfiles repo"
+    info_msg "Cloning dotfiles repo"
     git clone git@gitlab.com:mookle/dotfiles $dotfiles_dir
 
     # Move .gitconfig into place before stow-ing
     cp $dotfiles_dir/.gitconfig{.template,}
 
-    echo "[INFO] Stow-ing dotfiles"
+    info_msg "Stow-ing dotfiles"
     # The `stow --adopt` / `git restore` pattern allows config to be stow'd
     # even if it already exists at the target. `stow --adopt` pulls existing
     # changes into the source dir and `git restore` resets those changes, but
@@ -42,16 +61,14 @@ if [ ! -d $dotfiles_dir ]; then
     stow --dir=$dotfiles_dir --target=$HOME . --adopt
     git -C $dotfiles_dir restore .
 else
-    echo "========================================================================"
-    echo "[WARNING] Adopting existing config: review \`git diff\` in $dotfiles_dir"
-    echo "========================================================================"
+    dotfiles_dir_exists=1
     stow --dir=$dotfiles_dir --target=$HOME . --adopt
 fi
 
-echo "[INFO] Installing mise"
+info_msg "Installing mise"
 curl https://mise.run | sh
 
-echo "[INFO] Installing additional tools"
+info_msg "Installing additional tools"
 mise install
 mise run rust:toolchain nightly
 mise run set-default-shell fish
@@ -59,4 +76,8 @@ mise run fish:plugins
 
 # todo: AppImageLaucher task for wezterm and neovim
 
-echo "[INFO] Don't forget to set \`user.name\` and \`user.email\` in $HOME/.gitconfig"
+if (( dotfiles_dir_exists )); then
+    warning_msg "Bootstrap was run against a pre-existing dotfiles checkout. Review the contents of $dotfiles_dir for unexpected changes"
+fi
+
+info_msg "Don't forget to set \`user.name\` and \`user.email\` in $HOME/.gitconfig"
