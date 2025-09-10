@@ -12,7 +12,7 @@ set -g theme_nerd_fonts yes
 eval "$(mise activate fish)"
 
 # fuzzy `cd` with a frecency heuristic
-zoxide init fish | source
+zoxide init --cmd cd fish | source
 
 # Starship prompt
 starship init fish | source

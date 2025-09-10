@@ -1,0 +1,7 @@
+completions/
+conf.d/
+functions/
+fish_variables
+
+!functions/fish_greeting.fish
+!functions/save_history.fish

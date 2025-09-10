@@ -5,7 +5,7 @@
 set fisher_repo "https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish"
 
 if ! functions -q fisher
-    curl -sL $fisher_repo | source && fisher install jorgebucaran/fisher
+    curl -sL $fisher_repo | source && fisher install
 end
 
 fisher update
