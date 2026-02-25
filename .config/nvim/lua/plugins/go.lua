@@ -18,7 +18,7 @@ return {
     },
     config = function()
         require("go").setup()
-        require("lspconfig").gopls.setup({})
+        vim.lsp.config('gopls', {})
     end,
     build = ':lua require("go.install").update_all_sync()'
 }

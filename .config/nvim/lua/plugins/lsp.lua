@@ -63,7 +63,7 @@ return {
                 vim.lsp.buf.format { async = true }
             end, opts)
 
-            require('lspconfig').clojure_lsp.setup({})
+            vim.lsp.config('clojure_lsp', {})
         end,
     },
 }
