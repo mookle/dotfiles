@@ -43,6 +43,7 @@ return {
                 ripgrep = {
                     module = "blink-ripgrep",
                     name = "Ripgrep",
+                    score_offset = -100,
                     -- append a description to easily distinguish rg results
                     transform_items = function(_, items)
                         for _, item in ipairs(items) do
