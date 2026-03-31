@@ -19,3 +19,5 @@ starship init fish | source
 enable_transience
 
 alias ll='ls -lAhvN --group-directories-first'
+
+alias :q='exit'
