@@ -25,4 +25,7 @@ require("lazy").setup({
     checker = { enabled = false },
 })
 
-vim.cmd([[colorscheme tokyonight-moon]])
+
+vim.cmd([[colorscheme neobones]])
+vim.cmd([[highlight Normal guibg=#18232a]])
+vim.cmd([[highlight NormalNC guibg=#151f25]])
