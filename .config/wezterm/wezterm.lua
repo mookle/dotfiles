@@ -28,8 +28,8 @@ end
 
 local config = {}
 
-config.font = wezterm.font 'Hasklug NF'
-config.font_size = 12
+config.font = wezterm.font 'Hasklug Nerd Font Mono'
+config.font_size = 13
 config.line_height = 1.1
 
 config.color_scheme = 'kanagawabones'

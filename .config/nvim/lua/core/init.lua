@@ -1,0 +1,7 @@
+ require('core.lsp')
+ require('core.treesitter')
+ require('core.completion')
+ require('core.snacks')
+ require('core.oil')
+ require('core.lualine')
+ require('core.gitsigns')

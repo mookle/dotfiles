@@ -1,5 +1,10 @@
-local zk_dir = vim.fn.expand '~' .. '/zettelkasten'
+local gh = require('utils').gh
 
+vim.pack.add({
+    gh('zk-org/zk-nvim'),
+})
+
+local zk_dir = vim.fn.expand '~' .. '/zettelkasten'
 local title_prompt = function()
     vim.ui.input({ prompt = 'Enter note title: ' }, function(input)
         if input ~= nil then
@@ -11,19 +16,8 @@ local title_prompt = function()
     end)
 end
 
-return {
-    {
-        "zk-org/zk-nvim",
-        config = function()
-            require("zk").setup({})
-        end,
-        event = {
-          'BufReadPre ' .. zk_dir .. '/*.md',
-          'BufNewFile ' .. zk_dir .. '/*.md',
-        },
-        keys = {
-            { '<leader>n', title_prompt },
-        }
-    },
-}
+require('zk').setup({})
 
+local map = require('utils').map
+
+map('n', '<leader>n', title_prompt)

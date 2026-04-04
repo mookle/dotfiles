@@ -1,14 +1,11 @@
-return {
+local gh = require('utils').gh
+
+vim.pack.add({
     -- Automatically add/remove bracket pairs
-    {
-        'windwp/nvim-autopairs',
-        event = 'InsertEnter',
-        config = true
-    },
+    gh('windwp/nvim-autopairs'),
     -- Add/remove/edit surrounding pairs
-    {
-        'kylechui/nvim-surround',
-        event = 'InsertEnter',
-        config = true,
-    },
-}
+    gh('kylechui/nvim-surround'),
+})
+
+require('nvim-autopairs').setup()
+require('nvim-surround').setup()

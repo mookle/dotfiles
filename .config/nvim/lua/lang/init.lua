@@ -1,0 +1,5 @@
+-- require('lang.clojure')
+require('lang.elixir')
+-- require('lang.gdscript')
+-- require('lang.go')
+require('lang.rust')

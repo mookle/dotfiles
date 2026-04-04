@@ -21,4 +21,9 @@ function M.merge(t1, t2)
     return merged
 end
 
+-- Build GitHub URL from user/repo string
+function M.gh(user_repo)
+    return 'https://github.com/' .. user_repo
+end
+
 return M
