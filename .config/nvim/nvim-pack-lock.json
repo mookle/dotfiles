@@ -13,6 +13,10 @@
       "src": "https://github.com/saghen/blink.cmp",
       "version": "1.0.0 - 2.0.0"
     },
+    "cendre": {
+      "rev": "a35f41a0f8f8b61d122691761c56e40b649204fe",
+      "src": "https://github.com/Aejkatappaja/cendre"
+    },
     "elixir-tools.nvim": {
       "rev": "26aba63a5850bec6a2eff97a1aed859f29003ea9",
       "src": "https://github.com/elixir-tools/elixir-tools.nvim"

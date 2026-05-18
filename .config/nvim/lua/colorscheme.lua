@@ -7,9 +7,12 @@ vim.pack.add({
     gh('rose-pine/neovim'),
     gh('rktjmp/lush.nvim'), -- zenbones dep
     gh('mcchrish/zenbones.nvim'),
+    gh('Aejkatappaja/cendre'),
 })
 
-require('tokyonight').setup({})
+require('cendre').setup({
+    background = "soft", -- "hard" | "medium" | "soft"
+})
 
 local opts = {
     darkness = 'warm',
@@ -21,6 +24,4 @@ vim.g.rosebones = opts
 vim.g.zenwritten = opts
 vim.g.tokyobones = opts
 
-vim.cmd([[colorscheme neobones]])
-vim.cmd([[highlight Normal guibg=#18232a]])
-vim.cmd([[highlight NormalNC guibg=#151f25]])
+vim.cmd([[colorscheme cendre]])
