@@ -9,7 +9,7 @@ set -gx VISUAL ~/.local/bin/nvim
 set -g theme_nerd_fonts yes
 
 # mise tooling
-eval "$(mise activate fish)"
+mise activate fish | source
 
 # fuzzy `cd` with a frecency heuristic
 zoxide init --cmd cd fish | source

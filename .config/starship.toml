@@ -10,7 +10,7 @@ $directory\
 [](fg:red bg:aqua)\
 $git_branch\
 [](fg:aqua)\
-[ 󰓥 󰚌 🍌](fg:cream)\
+[ 🍌](fg:cream)\
 $fill\
 $elixir\
 $golang\

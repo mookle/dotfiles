@@ -32,7 +32,8 @@ config.font = wezterm.font 'Hasklug Nerd Font Mono'
 config.font_size = 13
 config.line_height = 1.1
 
-config.color_scheme = 'kanagawabones'
+-- config.color_scheme = 'Rosé Pine Dawn (Gogh)'
+config.color_scheme = 'Rosé Pine Moon (Gogh)'
 
 config.enable_tab_bar = true
 config.use_fancy_tab_bar = false
@@ -44,8 +45,6 @@ config.colors = {
         }
     }
 }
-
-config.window_decorations = "RESIZE"
 
 config.window_padding = {
     left = 0,
