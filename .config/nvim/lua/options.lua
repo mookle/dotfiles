@@ -48,12 +48,10 @@ local options = {
     --
     -- Folding
     --
-    -- foldmethod: how folds are determined
-    -- foldlevel: how many levels before folds are closed
-    --
+    foldenable = true,
     foldmethod = "expr",
     foldexpr = "v:lua.vim.lsp.foldexpr()",
-    --foldlevel = 3,
+    foldlevelstart = 99,
 
     --
     -- Misc
