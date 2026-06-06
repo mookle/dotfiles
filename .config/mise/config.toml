@@ -1,8 +1,8 @@
 [tools]
 # elixir
-elixir = "1.18.4-otp-26"
+elixir = "1.20.0-otp-27"
 elixir-ls = "latest"
-erlang = "26.2.3"
+erlang = "27"
 # rust
 rust = "nightly"
 "cargo:bacon" = "latest"
