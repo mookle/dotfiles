@@ -3,6 +3,7 @@
 [core]
     editor = nvim
     fileMode = false
+    excludesFile = ~/.gitignore
 [color]
     ui = auto
 [color "status"]
